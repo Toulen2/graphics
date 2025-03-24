@@ -16,9 +16,14 @@ public class DrawingPanel extends JPanel {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.translate(400, 400);                  // posune bod, od kterýho se vykresluje
-        g.drawLine(-2000, 0, 2000, 0); // osa X
-        g.drawLine(0, -2000, 0, 2000); // osa y
+        g.translate(550, 200);                  // posune bod, od kterýho se vykresluje
+//        g.drawLine(-5000, 0, 5000, 0); // osa X
+//        g.drawLine(0, -5000, 0, 5000); // osa y
         image.draw((Graphics2D)g);
+    }
+
+    public void setImage(Drawable image) {
+        this.image = image;
+        repaint();
     }
 }
