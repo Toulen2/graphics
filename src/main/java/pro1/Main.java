@@ -2,6 +2,7 @@ package pro1;
 
 import pro1.dravingModel.*;
 import pro1.swingComponents.MainFrame;
+import pro1.swingComponents.ParkPlanningFrame;
 
 import javax.swing.*;
 
@@ -23,6 +24,15 @@ public class Main {
             new MainFrame(g3);
 
         });    // labda výraz, metoda, která se někdy spustí
+
+        Group g4 = new Group(new Drawable[]{
+                new Tree(10, 10, 200, 200, "#454586")
+        }, 0, 1, 1);
+
+        SwingUtilities.invokeLater(() -> {
+            new ParkPlanningFrame(g4);
+
+        });
 
     }
 }

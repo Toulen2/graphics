@@ -16,7 +16,7 @@ public class Rectangle extends WidthHeightShape {
         g.setColor(Color.decode(color));    // nastaví barvu
         g.drawRect(x, y, width, height);    // nakreslí obdelník
         g.fillRect(x, y, width, height);    // vyplní obdelník
-        g.drawString("AHOJ", x, y);     // vykreslení stringu
+        g.drawString(color, x, y - 2);     // vykreslení stringu
 
     }
 
