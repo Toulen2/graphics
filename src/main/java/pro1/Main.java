@@ -25,12 +25,9 @@ public class Main {
 
         });    // labda výraz, metoda, která se někdy spustí
 
-        Group g4 = new Group(new Drawable[]{
-                new Tree(10, 10, 200, 200, "#454586")
-        }, 0, 1, 1);
 
         SwingUtilities.invokeLater(() -> {
-            new ParkPlanningFrame(g4);
+            new ParkPlanningFrame(new Tree(50,50,100,50,"#000000"));
 
         });
 

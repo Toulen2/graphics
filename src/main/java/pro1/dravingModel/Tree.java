@@ -12,7 +12,7 @@ public class Tree extends WidthHeightShape {
 
     public void draw(Graphics2D g) {
         g.setColor(Color.decode(color));
-        g.fillRect(x, y, width / 10, height);
-        g.fillOval(x - 40, y - 50, width / 2, height / 2);
+        g.fillRect(x, y, width / 5, height);
+        g.fillOval(x - width/5*2, y - height/2, width , width);
     }
 }

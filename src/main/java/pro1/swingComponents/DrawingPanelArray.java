@@ -1,6 +1,7 @@
 package pro1.swingComponents;
 
 import pro1.dravingModel.Drawable;
+import pro1.dravingModel.Tree;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,24 +10,29 @@ import java.util.ArrayList;
 * zkouška uděláni seznamu pro stromy
 * */
 public class DrawingPanelArray extends JPanel {
-    ArrayList<Drawable> drawables;
+    ArrayList<Tree> trees = new ArrayList<Tree>();
 
-    public DrawingPanelArray(ArrayList<Drawable> drawables) {
-        this.drawables = drawables;
+    public DrawingPanelArray(Tree t) {
+        this.trees.add( t);
+        repaint();
         setBackground(Color.WHITE);
     }
 
-    public void paintComponentArray(Graphics g) {
+    public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.translate(550, 200);
+//        g.translate(550, 200);
 
-        for (Drawable d : drawables) {
-            d.draw((Graphics2D) d);
+        for (Tree d : trees) {
+            d.draw((Graphics2D) g);
         }
     }
 
-    public void setImageArray(Drawable image) {
-        this.drawables.add(image);
+    public void setImage(Tree image) {
+        this.trees.add(image);
+        repaint();
+    }
+    public void clear() {
+        trees.clear();
         repaint();
     }
 }
