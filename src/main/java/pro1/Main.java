@@ -27,8 +27,7 @@ public class Main {
 
 
         SwingUtilities.invokeLater(() -> {
-            new ParkPlanningFrame(new Tree(50,50,100,50,"#000000"));
-
+            new ParkPlanningFrame(new Tree(50,50,100,100,"#000000"));
         });
 
     }

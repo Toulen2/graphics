@@ -11,6 +11,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.regex.Pattern;
 
 public class ParkPlanningFrame extends JFrame {
     private int LastX, LastY;
@@ -30,7 +31,7 @@ public class ParkPlanningFrame extends JFrame {
         add(leftPanel, BorderLayout.WEST);
         leftPanel.setPreferredSize(new Dimension(200, 0));
 
-        JLabel label1 = new JLabel("#123456");
+        JLabel label1 = new JLabel("#:");
         leftPanel.add(label1);
 
         JTextField textField = new JTextField(7);    // vytvoří textové pole
@@ -53,10 +54,12 @@ public class ParkPlanningFrame extends JFrame {
                 try {                                                           // try/catch kvůly textovému poli
                     String color;
                     color = textField.getText();                                // nastaví barvu, která je v poli
-                    if (textField.getText().isEmpty()) {                        // zkontroluju, jestli je pole prázdné
-                        drawingPanel.setImage(new Tree(LastX, LastY, 200, 200, "#000000"));
-                    } else {
+                    String regex = "(#[0-9a-fA-F]{6})";
+                    if (!textField.getText().isEmpty() && Pattern.matches(regex, "#" + color)) {                        // zkontroluju, jestli je pole prázdné
+                        color = "#" + color;
                         drawingPanel.setImage(new Tree(LastX, LastY, 200, 200, color));
+                    } else {
+                        drawingPanel.setImage(new Tree(LastX, LastY, 200, 200, "#000000"));
                     }
 
                 } catch (Exception ex) {
