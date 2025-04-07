@@ -34,11 +34,11 @@ public class ParkPlanningFrame extends JFrame {
         JLabel label1 = new JLabel("#:");
         leftPanel.add(label1);
 
-        JTextField textField = new JTextField(7);    // vytvoří textové pole
+        JTextField textField = new JTextField(6);    // vytvoří textové pole
         textField.setEditable(true);
         leftPanel.add(textField);
 
-        JButton buttonReset = new JButton("Reset");
+        JButton buttonReset = new JButton("Reset");     // tlačítko na reset
         leftPanel.add(buttonReset);
         buttonReset.addActionListener((e)->{
             drawingPanel.clear();
@@ -48,14 +48,14 @@ public class ParkPlanningFrame extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
 //                super.mouseClicked(e);
-                LastX = e.getX();   // uložím si informaci, kde se myš právě nacházela
+                LastX = e.getX();                           // uložím si informaci, kde se myš právě nacházela
                 LastY = e.getY();
 
                 try {                                                           // try/catch kvůly textovému poli
                     String color;
                     color = textField.getText();                                // nastaví barvu, která je v poli
-                    String regex = "(#[0-9a-fA-F]{6})";
-                    if (!textField.getText().isEmpty() && Pattern.matches(regex, "#" + color)) {                        // zkontroluju, jestli je pole prázdné
+                    String regex = "(#[0-9a-fA-F]{6})";         // zkontroluje, jestli textField je platný
+                    if (Pattern.matches(regex, "#" + color)) {                        // zkontroluju, jestli je pole prázdné
                         color = "#" + color;
                         drawingPanel.setImage(new Tree(LastX, LastY, 200, 200, color));
                     } else {
